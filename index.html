@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="left"></div>
+<div class="title">
+    <h1>Tic Tac Toe</h1>
+</div>
+<div class="settings">
+    <div class="settings-core">
+        <div class="settings-header">
+            <h3>Player 1: X</h3>
+            <h3 class="ai-header">AI</h3>
+        </div>
+        <div class="settings-row">
+            <input class="name-input" id="player-1-input" type="text" placeholder="Player 1">
+            <label class="switch">
+                <input type="checkbox" id="ai-checkbox-1">
+                <span class="slider" id="ai-slider-1"></span>
+            </label>
+        </div>
+        <div class="settings-header">
+            <h3>Player 2: O</h3>
+            <h3 class="ai-header">AI</h3>
+        </div>
+        <div class="settings-row">
+            <input class="name-input" id="player-2-input" type="text" placeholder="Player 2">
+            <label class="switch">
+                <input type="checkbox" id="ai-checkbox-2">
+                <span class="slider" id="ai-slider-2"></span>
+            </label>
+        </div>
+        <div class="settings-button">
+            <button class="buttons" id="start-btn">Start</button>
+            <button class="buttons" id="reset-btn">Reset</button>
+        </div>
+    </div>
+</div>
+<div class="game-board">
+    <div class="squares" id="square00"></div>
+    <div class="squares" id="square01"></div>
+    <div class="squares" id="square02"></div>
+    <div class="squares" id="square10"></div>
+    <div class="squares" id="square11"></div>
+    <div class="squares" id="square12"></div>
+    <div class="squares" id="square20"></div>
+    <div class="squares" id="square21"></div>
+    <div class="squares" id="square22"></div>
+</div>
+<div class="messageBox" id="message-box"></div>
+<div class="right"></div>
+</body>
+<script src="tictactoe.js"></script>
+</html>

@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-size: 12pt;
+    --button-color: #2196f3; /* Blue */
+    --button-hover-color: #f39621; /* Orange */
+    --text-color: #00000; /* Black */
+    /*--text-shadow-color: #263666; !* Black *!*/
+}
+
+body {
+    font-family: 'Indie Flower', cursive;
+    height: 1vh;
+    width: 100%;
+    /* Parent Grid Layout */
+    display: grid;
+    grid-template-columns: auto repeat(2, 350px) auto;
+    grid-template-rows: 100px 1fr auto;
+    align-items: center;
+    /* Background gradient */
+    /*background: rgba(254, 182, 69, 1);*/
+    /*background: linear-gradient(45deg, rgba(254, 182, 69, 1) 0%, rgba(241, 231, 103, 1) 100%);*/
+}
+
+.left {
+    height: 100%;
+    /* Grid Layout */
+    grid-column-start: 1;
+    grid-row: 1 / span 3;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: 2rem;
+    /*text-shadow: 3px 3px 3px var(--text-shadow-color);*/
+    grid-column: 2 / span 2;
+    grid-row-start: 1;
+    text-align: center;
+    /* Heading Banner */
+    /*background-color: #2196f3;*/
+    /*border-radius: 5px;*/
+    /*box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);*/
+    /*margin: 0 auto 0 auto;*/
+    /*padding: 5px;*/
+    /*width: 50%;*/
+}
+
+.game-board {
+    background-color: black;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    height: 310px;
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Grid Layout */
+    grid-column-start: 3;
+    grid-row-start: 2;
+    /* Flex Box */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.squares {
+    background-color: white;
+    cursor: pointer;
+    font-size: 90px;
+    /*text-shadow: 3px 3px 3px var(--text-shadow-color);*/
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    /* Background gradient */
+    background: rgba(255, 255, 255, 1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 75%, rgba(237, 237, 237, 1) 100%);
+}
+
+.squares:hover {
+    background-color: var(--button-color);
+}
+
+.squares:active {
+    background-color: var(--button-hover-color);
+}
+
+.right {
+    height: 100%;
+    /* Grid Layout */
+    grid-column-start: 4;
+    grid-row: 1 / span 3;
+}
+
+/* ---------- Settings */
+.settings {
+    padding-top: 12px;
+    height: 100%;
+    /* Grid Layout */
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.settings-core {
+    width: 280px;
+    margin: 0 auto 0 auto;
+    /* Parent Grid Layout */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto) 1fr;
+}
+
+.settings-row {
+    padding: 5px 0 15px 0;
+}
+
+.settings-row > * {
+    vertical-align: middle;
+}
+
+.ai-header {
+    float: right;
+    font-size: 2rem;
+    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    margin-right: 6px;
+}
+
+h3 {
+    color: var(--text-color);
+    font-size: 2rem;
+    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    display: inline;
+}
+
+.name-input {
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    border: 1px solid #bbb;
+    margin-right: 10px;
+    outline: none;
+    height: 34px;
+    width: 200px;
+}
+
+input[type="text"] {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    /*text-shadow: 1px 1px 1px #ccc;*/
+    padding-left: 5px;
+}
+
+/* Button */
+.settings-button {
+    padding: 15px 0 10px 0;
+    /* Flex box */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons {
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    color: var(--text-color);
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5rem;
+    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    outline: none;
+    padding: 3px 10px 0 10px;
+    text-decoration: none;
+}
+
+.buttons:hover {
+    background-color: var(--button-hover-color);
+}
+
+.buttons:active {
+    position: relative;
+    top: 1px;
+}
+
+.button-disabled {
+    background-color: #bbb;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    color: var(--text-color);
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5rem;
+    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    outline: none;
+    padding: 3px 10px 0 10px;
+}
+
+/* Results */
+.messageBox {
+    background-color: var(--button-color);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    color: var(--text-color);
+    cursor: default;
+    font-size: 1.5rem;
+    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    grid-column: 2 / span 2;
+    margin: 30px auto 0 auto;
+    min-width: 50%;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+}
+
+.messageBoxHighlight{
+    background-color: var(--button-hover-color);
+}
+
+/* ---------- Toggle Switch */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    border-radius: 3px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--button-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    border-radius: 3px;
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--button-hover-color);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
