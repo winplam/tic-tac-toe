@@ -116,8 +116,6 @@ const controlPanel = (() => {
             case "start-btn":
                 startGame(document.getElementById("player-1-input").value
                     , document.getElementById("player-2-input").value);
-                // document.getElementById("start-btn").style.display = "none";
-                // document.getElementById("reset-btn").style.display = "inline";
                 break;
             case "reset-btn":
                 resetGame();
@@ -352,8 +350,6 @@ const resetGame = () => {
     });
     displayController.refresh();
     document.getElementById("start-btn").disabled = false;
-    // document.getElementById("reset-btn").style.display = "none";
-    // document.getElementById("start-btn").style.display = "inline";
     gameBoard.currentTurn = "X";
     enableSettingsInput();
     displayMessages.welcomeMessage();
@@ -560,12 +556,18 @@ const aisTurn = (playerNumber) => {
             mediumAIStrategy();
             break;
         case aiDisplayControls.DifficultyLevels.IMPOSSIBLE:
-            impossibleAIStrategy(true);
+            if (JSON.stringify(gameBoard.grid) === '[["","",""],["","",""],["","",""]]') {
+                console.log("Picking random first move");
+                easyAIStrategy(100);
+            } else {
+                impossibleAIStrategy();
+            }
             break;
     }
 };
 
-/* Uncomment to auto start game with AI bots */
+// /* Uncomment to auto start game with AI bots */
 // document.getElementById("ai-checkbox-1").click();
+// document.getElementById("impossible-button-1").click();
 // document.getElementById("impossible-button-2").click();
 // document.getElementById("start-btn").click();
