@@ -116,8 +116,8 @@ const controlPanel = (() => {
             case "start-btn":
                 startGame(document.getElementById("player-1-input").value
                     , document.getElementById("player-2-input").value);
-                document.getElementById("start-btn").style.display = "none";
-                document.getElementById("reset-btn").style.display = "inline";
+                // document.getElementById("start-btn").style.display = "none";
+                // document.getElementById("reset-btn").style.display = "inline";
                 break;
             case "reset-btn":
                 resetGame();
@@ -352,8 +352,8 @@ const resetGame = () => {
     });
     displayController.refresh();
     document.getElementById("start-btn").disabled = false;
-    document.getElementById("reset-btn").style.display = "none";
-    document.getElementById("start-btn").style.display = "inline";
+    // document.getElementById("reset-btn").style.display = "none";
+    // document.getElementById("start-btn").style.display = "inline";
     gameBoard.currentTurn = "X";
     enableSettingsInput();
     displayMessages.welcomeMessage();
