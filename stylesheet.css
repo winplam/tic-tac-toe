@@ -9,7 +9,6 @@
     --button-color: #2196f3; /* Blue */
     --button-hover-color: #f39621; /* Orange */
     --text-color: #00000; /* Black */
-    /*--text-shadow-color: #263666; !* Black *!*/
 }
 
 body {
@@ -21,9 +20,6 @@ body {
     grid-template-columns: auto repeat(2, 350px) auto;
     grid-template-rows: 100px 1fr auto;
     align-items: center;
-    /* Background gradient */
-    /*background: rgba(254, 182, 69, 1);*/
-    /*background: linear-gradient(45deg, rgba(254, 182, 69, 1) 0%, rgba(241, 231, 103, 1) 100%);*/
 }
 
 .left {
@@ -36,17 +32,9 @@ body {
 .title {
     color: var(--text-color);
     font-size: 2rem;
-    /*text-shadow: 3px 3px 3px var(--text-shadow-color);*/
     grid-column: 2 / span 2;
     grid-row-start: 1;
     text-align: center;
-    /* Heading Banner */
-    /*background-color: #2196f3;*/
-    /*border-radius: 5px;*/
-    /*box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);*/
-    /*margin: 0 auto 0 auto;*/
-    /*padding: 5px;*/
-    /*width: 50%;*/
 }
 
 .game-board {
@@ -68,9 +56,7 @@ body {
 
 .squares {
     background-color: white;
-    cursor: pointer;
     font-size: 90px;
-    /*text-shadow: 3px 3px 3px var(--text-shadow-color);*/
     height: 100px;
     width: 100px;
     line-height: 100px;
@@ -124,14 +110,12 @@ body {
 .ai-header {
     float: right;
     font-size: 2rem;
-    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
     margin-right: 6px;
 }
 
 h3 {
     color: var(--text-color);
     font-size: 2rem;
-    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
     display: inline;
 }
 
@@ -148,7 +132,6 @@ h3 {
 input[type="text"] {
     font-family: sans-serif;
     font-size: 1.3rem;
-    /*text-shadow: 1px 1px 1px #ccc;*/
     padding-left: 5px;
 }
 
@@ -156,8 +139,9 @@ input[type="text"] {
 .settings-button {
     padding: 15px 0 10px 0;
     /* Flex box */
-    display: flex;
-    justify-content: space-evenly;
+    /*display: flex;*/
+    /*justify-content: space-evenly;*/
+    text-align: center;
 }
 
 .buttons {
@@ -168,8 +152,7 @@ input[type="text"] {
     cursor: pointer;
     color: var(--text-color);
     font-family: 'Indie Flower', cursive;
-    font-size: 1.5rem;
-    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    font-size: 2rem;
     outline: none;
     padding: 3px 10px 0 10px;
     text-decoration: none;
@@ -184,28 +167,33 @@ input[type="text"] {
     top: 1px;
 }
 
-.button-disabled {
+#start-btn:disabled {
     background-color: #bbb;
     border: none;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
     color: var(--text-color);
     font-family: 'Indie Flower', cursive;
-    font-size: 1.5rem;
-    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
+    font-size: 2rem;
     outline: none;
     padding: 3px 10px 0 10px;
 }
 
+#reset-btn {
+    display: none;
+    background-color: #f32196;
+}
+
 /* Results */
-.messageBox {
+.message-box {
     background-color: var(--button-color);
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
     border-radius: 5px;
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
     color: var(--text-color);
     cursor: default;
     font-size: 1.5rem;
-    /*text-shadow: 2px 2px 2px var(--text-shadow-color);*/
     grid-column: 2 / span 2;
     margin: 30px auto 0 auto;
     min-width: 50%;
@@ -213,17 +201,18 @@ input[type="text"] {
     text-align: center;
 }
 
-.messageBoxHighlight{
+.message-box-highlight {
     background-color: var(--button-hover-color);
 }
 
 /* ---------- Toggle Switch */
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
     display: inline-block;
-    width: 60px;
+    float: right;
+    position: relative;
     height: 34px;
+    width: 60px;
 }
 
 /* Hide default HTML checkbox */
@@ -269,4 +258,87 @@ input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+/* Modifications for AI */
+.ai-button-group {
+    display: inline;
+}
+
+.ai-button {
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    outline: none;
+    padding: 0 5px;
+    height: 34px;
+}
+
+.ai-button:hover:enabled {
+    background-color: var(--button-hover-color);
+}
+
+.ai-button:active:enabled {
+    background-color: var(--button-hover-color);
+    position: relative;
+    top: 1px;
+}
+
+.ai-button:disabled {
+    cursor: default;
+}
+
+.ai-button-disabled {
+    background-color: #bbb;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+    color: var(--text-color);
+    cursor: default;
+    font-size: 1rem;
+    outline: none;
+    padding: 0 5px;
+    height: 34px;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        grid-template-columns: auto 350px auto;
+        grid-template-rows: 100px repeat(2, 1fr) auto;
+
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .title {
+        grid-column: 2 / span 1;
+    }
+
+    .game-board {
+        grid-column-start: 2;
+        grid-row-start: 2;
+    }
+
+    .settings {
+        grid-column-start: 2;
+        grid-row-start: 4;
+    }
+
+    .message-box {
+        grid-column: 2 / span 1;
+    }
 }

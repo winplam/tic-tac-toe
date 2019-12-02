@@ -19,6 +19,11 @@
         </div>
         <div class="settings-row">
             <input class="name-input" id="player-1-input" type="text" placeholder="Player 1">
+            <div class="ai-button-group" id="ai-btn-grp-1" style="display: none">
+                <button class="ai-button" id="easy-button-1">Easy</button>
+                <button class="ai-button" id="medium-button-1">Medium</button>
+                <button class="ai-button" id="impossible-button-1">Impossible</button>
+            </div>
             <label class="switch">
                 <input type="checkbox" id="ai-checkbox-1">
                 <span class="slider" id="ai-slider-1"></span>
@@ -29,9 +34,14 @@
             <h3 class="ai-header">AI</h3>
         </div>
         <div class="settings-row">
-            <input class="name-input" id="player-2-input" type="text" placeholder="Player 2">
+            <input class="name-input" id="player-2-input" type="text" placeholder="Player 2" style="display: none">
+            <div class="ai-button-group" id="ai-btn-grp-2">
+                <button class="ai-button" id="easy-button-2">Easy</button>
+                <button class="ai-button" id="medium-button-2">Medium</button>
+                <button class="ai-button" id="impossible-button-2">Impossible</button>
+            </div>
             <label class="switch">
-                <input type="checkbox" id="ai-checkbox-2">
+                <input type="checkbox" id="ai-checkbox-2" checked="checked">
                 <span class="slider" id="ai-slider-2"></span>
             </label>
         </div>
@@ -52,7 +62,7 @@
     <div class="squares" id="square21"></div>
     <div class="squares" id="square22"></div>
 </div>
-<div class="messageBox" id="message-box"></div>
+<div class="message-box"></div>
 <div class="right"></div>
 </body>
 <script src="tictactoe.js"></script>
