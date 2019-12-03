@@ -12,13 +12,19 @@
 }
 
 body {
+    background-color: var(--button-color);
+}
+
+.container {
+    background-color: #fff;
     font-family: 'Indie Flower', cursive;
-    height: 1vh;
-    width: 100%;
+    margin: 0 auto 0 auto;
+    height: 100%;
+    width: 90%;
     /* Parent Grid Layout */
     display: grid;
     grid-template-columns: auto repeat(2, 350px) auto;
-    grid-template-rows: 100px 1fr auto;
+    grid-template-rows: 100px 1fr auto 1fr;
     align-items: center;
 }
 
@@ -79,6 +85,13 @@ body {
     /* Grid Layout */
     grid-column-start: 4;
     grid-row: 1 / span 3;
+}
+
+.bottom {
+    height: 100%;
+    /* Grid Layout */
+    grid-column: 1 / span 4;
+    grid-row-start: 4;
 }
 
 /* ---------- Settings */
@@ -309,11 +322,11 @@ input:checked + .slider:before {
     height: 34px;
 }
 
-@media screen and (max-width: 700px) {
-    body {
-        grid-template-columns: auto 350px auto;
-        grid-template-rows: 100px repeat(2, 1fr) auto;
-
+@media screen and (max-width: 750px) {
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+        justify-content: center;
     }
 
     .left {
@@ -324,21 +337,29 @@ input:checked + .slider:before {
         display: none;
     }
 
+    .bottom {
+        display: none;
+    }
+
     .title {
-        grid-column: 2 / span 1;
+        grid-column-start: 1;
     }
 
     .game-board {
-        grid-column-start: 2;
+        grid-column-start: 1;
         grid-row-start: 2;
     }
 
-    .settings {
-        grid-column-start: 2;
-        grid-row-start: 4;
+    .message-box {
+        grid-column-start: 1;
+        grid-row-start: 3;
+        margin-bottom: 10px;
     }
 
-    .message-box {
-        grid-column: 2 / span 1;
+    .settings {
+        grid-column-start: 1;
+        grid-row-start: 4;
+        margin-bottom: 10px;
     }
+
 }
