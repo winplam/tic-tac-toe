@@ -83,6 +83,14 @@ const displayController = (() => {
 
 // ---------- Add event listeners module
 const controlPanel = (() => {
+    function resetAIButtons() {
+        const aiCheckBox = document.querySelectorAll("input[type='checkbox']");
+        if (aiCheckBox[0].checked) aiCheckBox[0].click();
+        if (!aiCheckBox[1].checked) aiCheckBox[1].click();
+    }
+
+    window.onload = resetAIButtons();
+
     document.querySelector(".settings-core").addEventListener("click", (e) => {
         const id = e.target.id;
         listenToGameBoard(id);
@@ -274,24 +282,27 @@ const players = (() => {
 // Game controller
 const startGame = (name1, name2) => {
     // Set default player name if none is entered
-    const aiCheckbox1 = document.getElementById("ai-checkbox-1").checked;
-    const aiCheckbox2 = document.getElementById("ai-checkbox-2").checked;
-    if (aiCheckbox1) {
+    const aiCheckBox = document.querySelectorAll("input[type=checkbox");
+    if (aiCheckBox[0].checked) {
         try {
-            players.player1.name ? document.getElementById("player-1-input").value = players.player1.name
+            sessionStorage.getItem("savedPlayer1") ? document.getElementById("player-1-input").value
+                    = sessionStorage.getItem("savedPlayer1")
                 : document.getElementById("player-1-input").value = "Player 1";
         } catch (e) {
+            console.log("aiCheckBox[0] error");
         }
         name1 = players.ai1.playerName;
     } else if (name1 === undefined || name1 === null || name1 === "") {
         document.getElementById("player-1-input").value = "Player 1";
         name1 = "Player 1";
     }
-    if (aiCheckbox2) {
+    if (aiCheckBox[1].checked) {
         try {
-            players.player2.name ? document.getElementById("player-2-input").value = players.player2.name
+            sessionStorage.getItem("savedPlayer2") ? document.getElementById("player-2-input").value
+                    = sessionStorage.getItem("savedPlayer2")
                 : document.getElementById("player-2-input").value = "Player 2";
         } catch (e) {
+            console.log("aiCheckBox[1] error")
         }
         name2 = players.ai2.playerName;
     } else if (name2 === undefined || name2 === null || name2 === "") {
@@ -300,6 +311,10 @@ const startGame = (name1, name2) => {
     }
     players.player1 = players.playerFactory(name1);
     players.player2 = players.playerFactory(name2);
+    if (typeof (Storage) !== "undefined") {
+        if (players.player1.playerName !== players.ai1.playerName) sessionStorage.setItem("savedPlayer1", players.player1.playerName);
+        if (players.player2.playerName !== players.ai2.playerName) sessionStorage.setItem("savedPlayer2", players.player2.playerName);
+    }
     if (aiDisplayControls.difficultyLevel1 === undefined || aiDisplayControls.difficultyLevel1 === null
         || aiDisplayControls.difficultyLevel1 === "") {
         document.getElementById("medium-button-1").click();
@@ -326,8 +341,11 @@ const disableSettingsInput = () => {
     elementsToDisable.forEach(element => {
         document.getElementById(element).disabled = true;
     });
-    document.getElementById("ai-slider-1").classList.add("cursor-default");
-    document.getElementById("ai-slider-2").classList.add("cursor-default");
+// <span class="slider" id="ai-slider-1"></span>
+    const aiSlider = document.querySelectorAll("span.slider");
+    aiSlider.forEach((node) => {
+        node.classList.add("cursor-default")
+    });
 };
 
 const enableSettingsInput = () => {
@@ -337,8 +355,10 @@ const enableSettingsInput = () => {
     elementsToEnable.forEach(element => {
         document.getElementById(element).disabled = false;
     });
-    document.getElementById("ai-slider-1").classList.remove("cursor-default");
-    document.getElementById("ai-slider-2").classList.remove("cursor-default");
+    const aiSlider = document.querySelectorAll("span.slider");
+    aiSlider.forEach((node) => {
+        node.classList.remove("cursor-default")
+    });
 };
 
 // Reset game
@@ -557,7 +577,6 @@ const aisTurn = (playerNumber) => {
             break;
         case aiDisplayControls.DifficultyLevels.IMPOSSIBLE:
             if (JSON.stringify(gameBoard.grid) === '[["","",""],["","",""],["","",""]]') {
-                console.log("Picking random first move");
                 easyAIStrategy(100);
             } else {
                 impossibleAIStrategy();

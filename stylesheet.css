@@ -11,20 +11,23 @@
     --text-color: #00000; /* Black */
 }
 
-body {
-    background-color: var(--button-color);
+html, body {
+    height: 100%;
+    background: rgba(143, 202, 249, 1);
+    background: linear-gradient(135deg, rgba(143, 202, 249, 1) 0%, rgba(7, 76, 130, 1) 100%);
 }
 
 .container {
     background-color: #fff;
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.75);
     font-family: 'Indie Flower', cursive;
     margin: 0 auto 0 auto;
-    height: 100%;
-    width: 90%;
+    max-width: 90%;
     /* Parent Grid Layout */
     display: grid;
     grid-template-columns: auto repeat(2, 350px) auto;
-    grid-template-rows: 100px 1fr auto 1fr;
+    /*grid-template-rows: 100px 1fr auto 1fr;*/
+    grid-template-rows: 100px 1fr auto;
     align-items: center;
 }
 
@@ -85,13 +88,6 @@ body {
     /* Grid Layout */
     grid-column-start: 4;
     grid-row: 1 / span 3;
-}
-
-.bottom {
-    height: 100%;
-    /* Grid Layout */
-    grid-column: 1 / span 4;
-    grid-row-start: 4;
 }
 
 /* ---------- Settings */
@@ -208,7 +204,7 @@ input[type="text"] {
     cursor: default;
     font-size: 1.5rem;
     grid-column: 2 / span 2;
-    margin: 30px auto 0 auto;
+    margin: 30px auto auto auto;
     min-width: 50%;
     padding: 5px 10px 5px 10px;
     text-align: center;
@@ -216,6 +212,11 @@ input[type="text"] {
 
 .message-box-highlight {
     background-color: var(--button-hover-color);
+}
+
+.bottom {
+    grid-column: 1 / span 4;
+    min-height: 200px;
 }
 
 /* ---------- Toggle Switch */
@@ -362,4 +363,16 @@ input:checked + .slider:before {
         margin-bottom: 10px;
     }
 
+}
+
+@media screen and (max-height: 750px) {
+    .bottom {
+        min-height: 30px;
+    }
+}
+
+@media screen and (min-height: 900px) {
+    .bottom {
+        min-height: 300px;
+    }
 }
