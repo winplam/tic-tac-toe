@@ -165,6 +165,7 @@ input[type="text"] {
     outline: none;
     padding: 3px 10px 0 10px;
     text-decoration: none;
+    transition: .4s;
 }
 
 .buttons:hover {
@@ -188,9 +189,9 @@ input[type="text"] {
     padding: 3px 10px 0 10px;
 }
 
-#reset-btn {
-    /*display: none;*/
-    /*background-color: #f32196;*/
+.reset-btn-red {
+    background-color: #f32196;
+    transform: scale(1.2);
 }
 
 /* Results */

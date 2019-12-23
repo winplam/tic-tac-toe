@@ -192,6 +192,18 @@ const markSquare = (id) => {
   determineWinner()
 }
 
+// ---------- Change reset button color
+const changeResetBtnColor = (() => {
+  const resetButton = document.getElementById('reset-btn')
+  const makeRed = () => {
+    resetButton.classList.add('reset-btn-red')
+  }
+  const removeRed = () => {
+    resetButton.classList.remove('reset-btn-red')
+  }
+  return { makeRed, removeRed }
+})()
+
 // ---------- Check for winner or tie
 const determineWinner = () => {
   const checkPattern = [
@@ -250,15 +262,18 @@ const determineWinner = () => {
     case 'X':
       displayMessages.playerWins(players.player1.playerName)
       playRound.stopListening()
+      changeResetBtnColor.makeRed()
       break
     case 'O':
       displayMessages.playerWins(players.player2.playerName)
       playRound.stopListening()
+      changeResetBtnColor.makeRed()
       break
     default:
       if (gridIsFull()) {
         displayMessages.itsATie()
         playRound.stopListening()
+        changeResetBtnColor.makeRed()
       }
   }
 
@@ -412,6 +427,7 @@ const resetGame = () => {
   gameBoard.currentTurn = 'X'
   enableSettingsInput()
   displayMessages.welcomeMessage()
+  changeResetBtnColor.removeRed()
 }
 
 /* ---------- AI controls */
