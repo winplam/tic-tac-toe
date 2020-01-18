@@ -377,3 +377,12 @@ input:checked + .slider:before {
         min-height: 300px;
     }
 }
+
+footer {
+    bottom: 0%;
+    font-family: Arial, san-serif;
+    position: fixed;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    width: 100%;
+}
