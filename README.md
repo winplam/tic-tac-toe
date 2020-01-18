@@ -6,7 +6,7 @@ Not only can you play against a 2nd human player, you can pit the 2 AI's against
 Just sit back, relax and watch the two AI's duke it out.
 If both AI's are placed in "Impossible" difficulty, they will always end up in a tie.
 
-### [Play Online](https://winplam.github.io/tic-tac-toe/)
+## [Play Online](https://winplam.github.io/tic-tac-toe/)
 
 ## The Algorithm
 One easy mode, the AI is simply picking moves at random. Should be a cinch to beat.
