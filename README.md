@@ -16,10 +16,10 @@ Essentially the AI recursively picks every possible move and checks to see if th
 It tallies up a score to come up with the best move and chooses the first one in case of a tie.
 To make the medium difficulty, the computer simply alternates between the easy and impossible algorithm in between each move.
 
-## Desktop and Mobile Screenshots
-
+## Desktop Screenshot
 ![DesktopScreenshot](desktop-screenshot.png)
 
+## Mobile Screenshot
 ![MobileScreenshot](mobile-screenshot.png)
 
 ## The Design
